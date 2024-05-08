@@ -35,7 +35,7 @@ def permutation_with_SD(x: list, x_sd: list, y: list, y_sd: list, alternative='t
     the_average_betweeen_2_and_1  = Average([j/i*100-100 for i,j in zip(x, y)])
     # calculate the p-value
     if alternative == 'two-sided' or alternative == 't-s':
-        p_value = np.sum(np.abs(np.array(all_mean_combination)) < the_average_betweeen_2_and_1) / len(all_mean_combination)
+        p_value = np.sum(np.abs(np.array(all_mean_combination)) < abs(the_average_betweeen_2_and_1)) / len(all_mean_combination)
     elif alternative == 'greater' or alternative == 'g':
         p_value = np.sum(np.array(all_mean_combination) < the_average_betweeen_2_and_1) / len(all_mean_combination)
     elif alternative == 'less' or alternative == 'l':
