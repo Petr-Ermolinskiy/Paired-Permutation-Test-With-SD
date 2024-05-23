@@ -57,8 +57,9 @@ def Average(lst):
 def combinations_mean_and_sd(massive_mean: list, massive_SD: list):
     # Generate all possible combinations
     combinations = []
-    for signs in itertools.product(['+', '-', '+0*'], repeat=len(massive_mean)):
-        combination = [eval(f"{num1}{sign}{num2}") for num1, sign, num2 in zip(massive_mean, signs, massive_SD)]
+    sign_options = [-1, 1, 0]
+    for signs in itertools.product(sign_options, repeat=len(massive_mean)):
+        combination = [mean + sign * sd for mean, sign, sd in zip(massive_mean, signs, massive_SD)]
         combinations.append(combination)
     return combinations
 
